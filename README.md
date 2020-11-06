@@ -1,9 +1,5 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
-
-![restaurant collection]
-
-
 ## Features
 * search restaurant's name or category of exotic food
 * click restaurant card to reach more details of the restaurant
