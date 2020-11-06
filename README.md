@@ -1,6 +1,7 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
 
+![restaurant collection]
 
 
 ## Features
