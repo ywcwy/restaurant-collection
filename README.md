@@ -1,9 +1,9 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
 
-![restaurantCollection] (https://github.com/ywcwy/restaurant-collection/blob/master/restaurant%20collection.png)
+![restaurantCollection] (https://github.com/ywcwy/restaurant-collection/blob/master/restaurant%20collection.png "restaurant collection")
 
-![restaurantInfo] (https://github.com/ywcwy/restaurant-collection/blob/master/restaurant%20info.png)
+![restaurantInfo] (https://github.com/ywcwy/restaurant-collection/blob/master/restaurant%20info.png "restaurant info")
 
 ## Features
 * search restaurant's name or category of exotic food
