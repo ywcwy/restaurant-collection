@@ -1,4 +1,4 @@
-# restaurant-collection
+# Restaurant-Collection
 collection and recommendation for your daily meal
 
 ## Features
