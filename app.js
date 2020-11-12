@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
+const Restaurant = require('./models/restaurant') // 載入model的餐廳資料
 
 // 連線到資料庫
 const mongoose = require('mongoose')
@@ -15,13 +16,16 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-const restaurantList = require('./restaurant.json')
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find() // 取出 model內已放入的所有餐廳資料
+    .lean() // 將 mongoose 的model 物件轉為js 資料陣列
+    .then(restaurants => res.render('index', { restaurants })) // 將陣列內的所有餐廳資料傳入index樣板
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:id', (req, res) => {
