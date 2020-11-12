@@ -1,5 +1,6 @@
+//定義資料結構
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema //依Mongoose 規定好的資料格式建立資料
 const restaurantSchema = new Schema({
   name: {
     type: String,
@@ -34,4 +35,4 @@ const restaurantSchema = new Schema({
     required: true
   }
 })
-module.exports = mongoose.model('restaurant', restaurantSchema)
+module.exports = mongoose.model('Restaurant', restaurantSchema)
