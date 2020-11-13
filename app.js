@@ -7,6 +7,7 @@ const Restaurant = require('./models/restaurant') // 載入model的餐廳資料
 
 // 連線到資料庫
 const mongoose = require('mongoose')
+const restaurant = require("./models/restaurant")
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 // 取得資料庫連線狀態
 const db = mongoose.connection
@@ -22,6 +23,8 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'), bodyParser.urlencoded({ extended: true }))
 
+// create routing
+// 1. render index
 app.get('/', (req, res) => {
   Restaurant.find() // 取出 model內已放入的所有餐廳資料
     .lean() // 將 mongoose 的model 物件轉為js 資料陣列
@@ -31,13 +34,13 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// create routing
-// 1.render homepage
+
+// 1. create new restaurant
 app.get('/restaurants/new', (req, res) => {
   res.render('new')
 })
 
-// 2. create new restaurant
+
 app.post('/restaurants', (req, res) => {
   const item = req.body
   return Restaurant.create({ // 將新增的餐廳資料存入資料庫
@@ -55,7 +58,7 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// 3. show each detail
+// 2. show each detail
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -64,7 +67,7 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//4. edit each detail
+//3. edit each detail
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -95,11 +98,16 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  const keyword = req.query.keyword.trim().toLowerCase()
-  const restaurants = restaurantList.results.filter(item => {
-    return item.name.trim().toLowerCase().includes(keyword) || item.category.trim().toLowerCase().includes(keyword)
-  })
-  res.render('index', { restaurants: restaurants, keyword: keyword })
+  const keyword = req.query.keyword.trim()
+  return Restaurant.find({ $or: [{ name: new RegExp(keyword, 'i') }, { category: new RegExp(keyword, 'i') }] })
+    .lean()
+    .then(restaurants => {
+      if (restaurants.length === 0) {
+        return alert(`無與${keyword}相關的餐廳`);
+      }
+      res.render('index', { restaurants, keyword, css: 'index.css' })
+    })
+    .catch(error => console.log(error))
 })
 
 
