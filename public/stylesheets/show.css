@@ -10,6 +10,18 @@ header {
   color: #226089;
 }
 
+.create-new, .fa-plus {
+  font-size: 14px;
+  border-radius: 10px;
+  color: #fce2cf;
+  background-color: #9b4b4b;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-new:hover, .fa-plus:hover {
+  color:#fce2cf;
+}
+
 .banner {
   position: relative;
   z-index: -1;

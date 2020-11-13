@@ -25,14 +25,19 @@ app.use(express.static('public'), bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   Restaurant.find() // 取出 model內已放入的所有餐廳資料
     .lean() // 將 mongoose 的model 物件轉為js 資料陣列
-    .then(restaurants => res.render('index', { restaurants })) // 將陣列內的所有餐廳資料傳入index樣板
+    .then(restaurants => res.render('index', {
+      restaurants, css: 'index.css'
+    })) // 將陣列內的所有餐廳資料傳入index樣板
     .catch(error => console.log(error))
 })
 
+// create routing
+// 1.render homepage
 app.get('/restaurants/new', (req, res) => {
   res.render('new')
 })
 
+// 2. create new restaurant
 app.post('/restaurants', (req, res) => {
   const item = req.body
   return Restaurant.create({ // 將新增的餐廳資料存入資料庫
@@ -50,11 +55,42 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// 3. show each detail
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
-    .then((restaurant) => res.render('show', { restaurant }))
+    .then((restaurant) => res.render('show', { restaurant, css: 'show.css' }))
+    .catch(error => console.log(error))
+})
+
+//4. edit each detail
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('edit', { restaurant, css: 'show.css' }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const item = req.body
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant = Object.assign(restaurant, req.body) // Object.assign(target, ...sources) target指向你想要接收資料的物件，sources則放入資料的來源 
+      // restaurant.name = item.name,
+      //   restaurant.name_en = item.name_en,
+      //   restaurant.category = item.category,
+      //   restaurant.image = item.image,
+      //   restaurant.location = item.location,
+      //   restaurant.phone = item.phone,
+      //   restaurant.google_map = item.google_map,
+      //   restaurant.rating = item.rating,
+      //   restaurant.description = item.description
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
 
