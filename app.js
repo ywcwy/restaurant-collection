@@ -51,10 +51,13 @@ app.post('/restaurants', (req, res) => {
 })
 
 app.get('/restaurants/:id', (req, res) => {
-  const showRestaurant = req.params.id
-  const restaurants = restaurantList.results.find(item => item.id === Number(showRestaurant))
-  res.render('show', { restaurant: restaurants })
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
+
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()
   const restaurants = restaurantList.results.filter(item => {

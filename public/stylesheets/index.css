@@ -10,7 +10,7 @@ header {
   color: #226089;
 }
 
-.create-new {
+.create-new, .fa-plus {
   font-size: 14px;
   border-radius: 10%;
   color: #fce2cf;
@@ -18,7 +18,7 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.create-new:hover {
+.create-new:hover, .fa-plus:hover {
   color:#fce2cf;
 }
 
