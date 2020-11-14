@@ -66,6 +66,13 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.fa-edit:hover{
+  color: darkgreen;
+}
+.fa-trash:hover {
+  color: darkred;
+}
+
 .restaurant-category {
   color: #666666;
   font-size: 0.8rem;

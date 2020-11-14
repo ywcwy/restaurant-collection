@@ -1,12 +1,16 @@
-<form action="/restaurants" method="POST">
-  <input type="text" placeholder="name" name="name">
-  <input type="text" placeholder="name_en" name="name_en">
-  <input type="text" placeholder="category" name="category">
-  <input type="text" placeholder="image" name="image">
-  <input type="text" placeholder="location" name="location">
-  <input type="text" placeholder="phone" name="phone">
-  <input type="text" placeholder="google_map" name="google_map">
-  <input type="text" placeholder="rating" name="rating">
-  <input type="text" placeholder="description" name="description">
-  <button type="submit">Create</button>
-</form>
+<div class="d-flex justify-content-center restaurant-category">
+  <form action="/restaurants" method="POST">
+    <p class="title">name: <input type="text" name="name" required="required"></p>
+    <p class="title">name_en: <input type="text" name="name_en" required="required"></p>
+    <p class="title">category: <input type="text" name="category" required="required"></p>
+    <p class="title">image: <input type="text" name="image" required="required"></p>
+    <p class="title">location: <input type="text" name="location" required="required">
+    </p>
+    <p class="title">phone: <input type="text" name="phone" required="required"></p>
+    <p class="title">google_map: <input type="text" name="google_map" width="100px" required="required"></p>
+    <p class="title">rating: <input type="text" name="rating" required="required"></p>
+    <p class="title">description: <input type="text" name="description" required="required"></p>
+    <div class="d-flex justify-content-center"><button type="submit" class="create">Create</button></div>
+    <div class="d-flex"><a href="/" class="mx-auto my-4 back">back</a></div>
+  </form>
+</div>

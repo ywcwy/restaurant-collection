@@ -1,14 +1,23 @@
-<form action="/restaurants/{{restaurant._id}}/edit" method="POST">
-  <input type="text" placeholder="name" name="name" value="{{restaurant.name}}">
-  <input type="text" placeholder="name_en" name="name_en" value="{{restaurant.name_en}}">
-  <input type="text" placeholder="category" name="category" value="{{restaurant.category}}">
-  <input type="text" placeholder="image" name="image" value="{{restaurant.image}}">
-  <input type="text" placeholder="location" name="location" value="{{restaurant.location}}">
-  <input type="text" placeholder="phone" name="phone" value="{{restaurant.phone}}">
-  <input type="text" placeholder="google_map" name="google_map" value="{{restaurant.google_map}}">
-  {{!-- 無顯示在show page，但還是可用來修改index的rating資訊--}}
-  <input type="text" placeholder="rating" name="rating" value="{{restaurant.rating}}">
-  <input type="text" placeholder="description" name="description" value="{{restaurant.description}}">
-  <button type="submit">Save</button>
-  <div class="d-flex"><a href="/" class="mx-auto mb-5 back">back</a></div>
+<div class="d-flex justify-content-center restaurant-category">
+  <form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+    <p class="title">name: <input type="text" name="name" value="{{restaurant.name}}"></p>
+    <p class="title">name_en: <input type="text" name="name_en" value="{{restaurant.name_en}}"></p>
+    <p class="title">category: <input type="text" name="category" value="{{restaurant.category}}"></p>
+    <p class="title">image: <input type="text" pname="image" value="{{restaurant.image}}"></p>
+    <p class="title">location: <input type="text" name="location" value="{{restaurant.location}}"></p>
+    <p class="title">phone: <input type="text" name="phone" value="{{restaurant.phone}}"></p>
+    <p class="title">google_map: <input type="text" name="google_map" width="100px" value="{{restaurant.google_map}}">
+    </p>
+    {{!-- 無顯示在show page，但還是可用來修改index的rating資訊--}}
+    <p class="title">rating: <input type="text" name="rating" value="{{restaurant.rating}}"></p>
+    <p class="title">description: <input type="text" name="description" value="{{restaurant.description}}"></p>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="save">Save</button>
+    </div>
+    <a href="/restaurants/{{restaurant._id}}/delete" class="text-secondary delete d-flex justify-content-end"><i
+        class="fas fa-trash pt-1">
+        Delete</i></a>
+</div>
+<div class="d-flex"><a href="/" class="mx-auto my-4 back">back</a></div>
 </form>
+</div>
