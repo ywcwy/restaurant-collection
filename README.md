@@ -50,4 +50,4 @@ $npm run dev
 ```
 Express is listening on localhost:3000     // if start working, termianl will show this message
 ```
-### 7. Enter the page "localhost:3000"
+### 7. Go to the page "localhost:3000"
