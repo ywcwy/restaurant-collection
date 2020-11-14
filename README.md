@@ -8,6 +8,9 @@ collection and recommendation for your daily meal
 ## Features
 * search restaurant's name or category of exotic food
 * click restaurant card to reach more details of the restaurant
+* create new restaurant page
+* edit and view particular restaurant details
+* delete particular restaurant page 
 
 ## Environment
 * Node.js
@@ -15,6 +18,9 @@ collection and recommendation for your daily meal
 ## Packages
 * express
 * express-handlebars
+
+## Database
+* mongoose 
 
 ## Install (for Mac OS user)
 ### 1. Open Terminal
@@ -44,4 +50,4 @@ $npm run dev
 ```
 Express is listening on localhost:3000     // if start working, termianl will show this message
 ```
-
+### 7. Enter the page "localhost:3000"
