@@ -41,13 +41,17 @@ $npm init -y     // create and initialize package.json directory
 ```
 $npm install     // install all the Packages
 ```
+### 5. Connect to the Database
+```
+$npm run seed      // install all the Packages
+```
 
-### 5. Project Implement
+### 6. Project Implement
 ```
 $npm run dev   
 ```
-### 6. Project Start 
+### 7. Project Start 
 ```
 Express is listening on localhost:3000     // if start working, termianl will show this message
 ```
-### 7. Go to the page "localhost:3000"
+### 8. Go to the page "localhost:3000"
