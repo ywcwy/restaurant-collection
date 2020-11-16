@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center restaurant-category">
-  <form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+  <form action="/restaurants/{{restaurant._id}}?_method=PUT" method="POST">
     <p class="title">name: <input type="text" name="name" value="{{restaurant.name}}"></p>
     <p class="title">name_en: <input type="text" name="name_en" value="{{restaurant.name_en}}"></p>
     <p class="title">category: <input type="text" name="category" value="{{restaurant.category}}"></p>
@@ -14,10 +14,5 @@
     <div class="d-flex justify-content-center">
       <button type="submit" class="save">Save</button>
     </div>
-    <a href="/restaurants/{{restaurant._id}}/delete" class="text-secondary delete d-flex justify-content-end"><i
-        class="fas fa-trash pt-1">
-        Delete</i></a>
-</div>
-<div class="d-flex"><a href="/" class="mx-auto my-4 back">back</a></div>
-</form>
+  </form>
 </div>

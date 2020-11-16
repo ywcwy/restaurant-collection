@@ -6,9 +6,10 @@
         <a href="/restaurants/{{restaurant._id}}/edit" class="text-secondary mb-3 mr-4 edit"><i
             class="fas fa-edit pt-1">
             Edit</i></a>
-        <a href="/restaurants/{{restaurant._id}}/delete" class="text-secondary mb-3 delete"><i
-            class="fas fa-trash pt-1">
-            Delete</i></a></div>
+        <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" class="text-secondary mb-3 delete">
+          <button class="btn fas fa-trash pt-1" type="submit">Delete</button>
+        </form>
+      </div>
       <p class="mb-1">
         <span class="text-secondary">
           <i class="fas fa-utensils pr-2"></i>

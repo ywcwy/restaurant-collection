@@ -83,6 +83,10 @@ header {
 color:  #9b4b4b;
 }
 
+.fa-trash {
+  color: #666666;
+}
+
 .fa-trash:hover {
   color: darkred;
 }

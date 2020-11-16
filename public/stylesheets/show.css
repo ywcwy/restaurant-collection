@@ -66,12 +66,20 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .fa-edit:hover{
   color: darkgreen;
 }
+
+.fa-trash {
+  color: #666666;
+}
+
 .fa-trash:hover {
   color: darkred;
 }
+
+
 
 .restaurant-category {
   color: #666666;

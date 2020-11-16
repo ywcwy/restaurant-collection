@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 const Restaurant = require('./models/restaurant') // 載入model的餐廳資料
 
 // 連線到資料庫
@@ -22,6 +23,7 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'), bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 // create routing
 // 1. render index
@@ -75,7 +77,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const item = req.body   // 將修改好的資料以item取出
   return Restaurant.findById(id)  //在資料庫中尋找相同的餐廳id
@@ -111,7 +113,7 @@ app.get('/search', (req, res) => {
 })
 
 // 6. delete item
-app.get('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id  // 拿到使用者想刪除的餐廳的id
   return Restaurant.findById(id)  //在資料庫中尋找相同的餐廳id
     .then((restaurant) => restaurant.remove())  // 將該餐廳資料移除
