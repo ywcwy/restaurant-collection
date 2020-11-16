@@ -1,14 +1,10 @@
 const restaurantList = require('../restaurant.json')
 // 連線資料庫
-const mongoose = require('mongoose')
 const Restaurant = require('../restaurant') //載入 restaurant model的資料結構
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-db.on('error', () => {
-  console.log('mongodb error!')
-})
+
+const db = require('../../config/mongoose')
+
 db.once('open', () => {
-  console.log('mongodb connected!')
   restaurantList.results.forEach((item) => {
     Restaurant.create({  //將model的資料結構依屬性放入value
       name: item.name,
@@ -22,6 +18,5 @@ db.once('open', () => {
       description: item.description
     })
   })
-
-
+  console.log('done')
 })
