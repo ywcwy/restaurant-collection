@@ -16,5 +16,27 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get('/asc', (req, res) => {
+  Restaurant.find() // 取出 model內已放入的所有餐廳資料
+    .lean() // 將 mongoose 的model 物件轉為js 資料陣列
+    .sort({ name: 'asc' }) // 餐廳名依拼音升冪排列
+    .then(restaurants => res.render('index', {
+      restaurants, css: 'index.css'
+    })) // 將陣列內的所有餐廳資料傳入index樣板
+    .catch(error => console.log(error))
+})
+
+router.get('/desc', (req, res) => {
+  Restaurant.find() // 取出 model內已放入的所有餐廳資料
+    .lean() // 將 mongoose 的model 物件轉為js 資料陣列
+    .sort({ name: 'desc' }) // 餐廳名依拼音升冪排列
+    .then(restaurants => res.render('index', {
+      restaurants, css: 'index.css'
+    })) // 將陣列內的所有餐廳資料傳入index樣板
+    .catch(error => console.log(error))
+})
+
+
+
 // 匯出路由模組，index 會來接
 module.exports = router

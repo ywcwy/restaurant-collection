@@ -41,6 +41,13 @@ header {
   border: 0;
   margin-top: -60px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+} 
+
+.dropdown {
+  max-width: 680px;
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin-top: -30px;
 }
 
 .search-bar .search-bar-inner h4 {
@@ -75,16 +82,23 @@ header {
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+
+.more {
+  font-size: 0.8rem;
+}
+
 .fa-edit:hover{
   color: darkgreen;
 }
 
 .fa-list-alt:hover{
-color:  #9b4b4b;
+  color:  darkgreen;
 }
 
 .fa-trash {
+  border: 0;
   color: #666666;
+  font-size: 0.8rem;
 }
 
 .fa-trash:hover {
@@ -109,6 +123,13 @@ color:  #9b4b4b;
   
   .card img{
     height: 115px;
+  }
+
+  .more{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 -10px;
   }
 }
 

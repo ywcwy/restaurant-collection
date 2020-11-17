@@ -66,19 +66,7 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// search
-router.get('/search', (req, res) => {
-  const keyword = req.query.keyword.trim()  // 將使用者輸入的關鍵字存入keyword
-  return Restaurant.find({ $or: [{ name: new RegExp(keyword, 'i') }, { category: new RegExp(keyword, 'i') }] })  // 以建構子函式建立正規表達式物件，使用'i'讓文字不區分大小寫
-    .lean()
-    .then(restaurants => {  //如查詢到的restaurants陣列為空
-      if (restaurants.length === 0) {
-        return alert(`無與${keyword}相關的餐廳`);
-      }
-      res.render('index', { restaurants, keyword, css: 'index.css' })  // 將搜尋完的結果導回index頁面
-    })
-    .catch(error => console.log(error))
-})
+
 
 // delete item
 router.delete('/:id', (req, res) => {

@@ -14,14 +14,29 @@
       </form>
     </div>
   </div>
+
 </div>
+
+
 
 <div class="container mt-5">
   <div class="row">
+    <div class="dropdown show col-12 mx-auto d-flex justify-content-end mb-4">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        排序
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/asc">A~Z</a>
+        <a class="dropdown-item" href="/desc">Z~A</a>
+      </div>
+    </div>
+
+
     <div class="col-md-10 col-12 mx-auto">
-      <div class="card-columns">
+      <div class="card-columns d-flex flex-wrap">
         {{#each restaurants}}
-        <div class="card mb-3">
+        <div class="card mb-3 col-4">
           <a href="/restaurants/{{this._id}}" class="text-secondary">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}"></a>
           <div class="card-body p-3">
@@ -35,13 +50,13 @@
               {{this.rating}}
               <i class="fas fa-star fa-xs"></i>
             </span>
-            <div class="mx-auto mt-2 d-flex flex-wrap justify-content-between">
+            <div class="mx-auto mt-2 d-flex flex-wrap justify-content-between more text-align-center">
               <a href="/restaurants/{{this._id}}/edit" class="text-secondary"><i class="fas fa-edit ml-3 pt-1">
                   Edit</i></a>
               <a href="/restaurants/{{this._id}}" class="text-secondary"><i class="fas fa-list-alt ml-3 pt-1">
                   Detail</i></a>
-              <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST">
-                <button class="btn fas fa-trash ml-1 pt-1" type="submit"> Delete</button>
+              <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" class="ml-3 pt-1">
+                <i class="fas fa-trash" type="submit"> Delete</i>
               </form>
             </div>
           </div>
