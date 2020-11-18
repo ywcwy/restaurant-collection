@@ -5,6 +5,7 @@ const router = express.Router()
 // 載入model的餐廳資料
 const Restaurant = require('../../models/restaurant')
 
+
 // create new restaurant
 router.get('/new', (req, res) => { //進入新增餐廳的頁面
   res.render('new', { css: 'edit.css' })
