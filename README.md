@@ -1,7 +1,7 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
 
-![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20collection.png)
+![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/w%3A%20detail%2C%20edit%2C%20delete%20function.png)
 
 ![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20info.png)
 
