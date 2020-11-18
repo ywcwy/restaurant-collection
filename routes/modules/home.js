@@ -29,12 +29,35 @@ router.get('/asc', (req, res) => {
 router.get('/desc', (req, res) => {
   Restaurant.find() // 取出 model內已放入的所有餐廳資料
     .lean() // 將 mongoose 的model 物件轉為js 資料陣列
-    .sort({ name: 'desc' }) // 餐廳名依拼音升冪排列
+    .sort({ name: 'desc' }) // 餐廳名依拼音降冪排列
     .then(restaurants => res.render('index', {
       restaurants, css: 'index.css'
     })) // 將陣列內的所有餐廳資料傳入index樣板
     .catch(error => console.log(error))
 })
+
+router.get('/location', (req, res) => {
+  Restaurant.find() // 取出 model內已放入的所有餐廳資料
+    .lean() // 將 mongoose 的model 物件轉為js 資料陣列
+    .sort({ location: 'asc' }) // 餐廳名依地區排列
+    .then(restaurants => res.render('index', {
+      restaurants, css: 'index.css'
+    })) // 將陣列內的所有餐廳資料傳入index樣板
+    .catch(error => console.log(error))
+})
+
+
+router.get('/category', (req, res) => {
+  Restaurant.find() // 取出 model內已放入的所有餐廳資料
+    .lean() // 將 mongoose 的model 物件轉為js 資料陣列
+    .sort({ category: 'asc' }) // 餐廳名依類別排列
+    .then(restaurants => res.render('index', {
+      restaurants, css: 'index.css'
+    })) // 將陣列內的所有餐廳資料傳入index樣板
+    .catch(error => console.log(error))
+})
+
+
 
 
 
