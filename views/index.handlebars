@@ -34,37 +34,39 @@
       </div>
     </div>
 
-
-    <div class="col-md-10 col-12 mx-auto">
-      <div class="card-columns d-flex flex-wrap">
-        {{#each restaurants}}
-        <div class="card mb-3 col-4">
-          <a href="/restaurants/{{this._id}}" class="text-secondary">
-            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}"></a>
-          <div class="card-body p-3">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+        <div class="card-columns">
+          {{#each restaurants}}
+          <div class="card mb-3">
             <a href="/restaurants/{{this._id}}" class="text-secondary">
-              <h6 class="card-title mb-1">{{this.name}}</h6>
-            </a>
-            <div class="restaurant-category mb-1">
-              <i class="fas fa-utensils pr-2"></i> {{this.category}}
-            </div>
-            <span class="badge badge-pill badge-danger font-weight-normal">
-              {{this.rating}}
-              <i class="fas fa-star fa-xs"></i>
-            </span>
-            <div class="mx-auto mt-2 d-flex flex-wrap justify-content-between more text-align-center">
-              <a href="/restaurants/{{this._id}}/edit" class="text-secondary"><i class="fas fa-edit ml-3 pt-1">
-                  Edit</i></a>
-              <a href="/restaurants/{{this._id}}" class="text-secondary"><i class="fas fa-list-alt ml-3 pt-1">
-                  Detail</i></a>
-              <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" class="ml-3 pt-1">
-                <i class="fas fa-trash" type="submit"> Delete</i>
-              </form>
+              <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}"></a>
+            <div class="card-body p-3">
+              <a href="/restaurants/{{this._id}}" class="text-secondary">
+                <h6 class="card-title mb-1">{{this.name}}</h6>
+              </a>
+              <div class="restaurant-category mb-1">
+                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+              </div>
+              <span class="badge badge-pill badge-danger font-weight-normal">
+                {{this.rating}}
+                <i class="fas fa-star fa-xs"></i>
+              </span>
+              <div class="mx-auto mt-2 d-flex flex-wrap justify-content-center more">
+                <a href="/restaurants/{{this._id}}/edit" class="text-secondary"><i class="btn fas fa-edit ml-3 pt-1">
+                    Edit</i></a>
+                <a href="/restaurants/{{this._id}}" class="text-secondary"><i class="btn fas fa-list-alt ml-3 pt-1">
+                    Detail</i></a>
+                <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" class="ml-3 d-inline">
+                  <i class="btn fas fa-trash" type="submit"></i>
+                </form>
+              </div>
+
             </div>
           </div>
+          </a>
+          {{/each}}
         </div>
-        </a>
-        {{/each}}
       </div>
     </div>
   </div>
