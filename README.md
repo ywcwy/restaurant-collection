@@ -1,11 +1,12 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
 
-![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20collection.png)
+![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/w%3A%20detail%2C%20edit%2C%20delete%20function.png)
 
 ![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20info.png)
 
 ## Features
+* ordering restaurants by location or category
 * search restaurant's name or category of exotic food
 * click restaurant card to reach more details of the restaurant
 * create new restaurant page
@@ -18,6 +19,8 @@ collection and recommendation for your daily meal
 ## Packages
 * express
 * express-handlebars
+* method-override
+* body-parser
 
 ## Database
 * mongoose 
