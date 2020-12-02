@@ -24,10 +24,10 @@ router.post('/', (req, res) => { //填入新餐廳的資料並存欓
     rating: item.rating,
     description: item.description
   })
-    .then(() => res.redirect('/')) // 完成新增餐廳資料後導回首頁
-    .catch(error => console.log(error))
+    .then(() => {
+      res.redirect('/') // 完成新增餐廳資料後導回首頁
+    })
 })
-
 // show each detail
 router.get('/:id', (req, res) => {
   const id = req.params.id  // 拿到使用者想瀏覽的餐廳的id
@@ -48,7 +48,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const item = req.body   // 將修改好的資料以item取出
+  // const item = req.body   // 將修改好的資料以item取出
   return Restaurant.findById(id)  //在資料庫中尋找相同的餐廳id
     .then(restaurant => {  // 找到對應的id後儲存在資料庫
       restaurant = Object.assign(restaurant, req.body) // Object.assign(target, ...sources) target指向你想要接收資料的物件，sources則放入資料的來源 

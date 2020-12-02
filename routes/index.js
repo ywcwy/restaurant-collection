@@ -3,14 +3,6 @@ const express = require('express')
 // 引用 express 路由器
 const router = express.Router()
 
-const handlebars = require('handlebars')
-handlebars.registerHelper('ifActive', function (sort, target, options) {
-  const sort = req.path
-  if (sort === target) {
-    return options.fn(this);  // handlebars內文字，出現在條件成立
-  }
-  return options.inverse(this);  //handlebars內文字，出現條件不成立
-})
 
 // 封裝模組
 // 引入 home 模組
@@ -27,6 +19,12 @@ router.use('/restaurants', restaurants)
 const search = require('./modules/search')
 // 將網址結構符合 /search 字串的 request 導向 search.js
 router.use('/search', search)
+
+// 引入 sort 模組程式碼
+const sort = require('./modules/sort')
+// 將網址結構符合 /sort 字串的 request 導向 sort.js
+router.use('/sort', sort)
+
 
 // 匯出路由器
 module.exports = router
