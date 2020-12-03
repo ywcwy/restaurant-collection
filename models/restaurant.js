@@ -4,21 +4,21 @@ const Schema = mongoose.Schema //依Mongoose 規定好的資料格式建立資�
 const restaurantSchema = new Schema({
   name: {
     type: String,
-    required: [true, 'please fill in!']
+    required: true
   },
   name_en: {
     type: String,
   },
   category: {
     type: String,
-    required: [true, 'please fill in!']
+    required: true
   },
   image: {
     type: String,
   },
   location: {
     type: String,
-    required: [true, 'please fill in!']
+    required: true
   },
   phone: {
     type: String,
@@ -28,19 +28,13 @@ const restaurantSchema = new Schema({
   },
   rating: {
     type: Number,
-    // validate: {
-    //   validator: function (v) {
-    //     return /[0-5]/.test(v)  // 只能是數字0-5
-    //   },
-    //   message: `{VALUE} is not a number`
-    // },
     min: 0,
     max: 5,
-    required: [true, 'please fill in!']
+    required: true
   },
   description: {
     type: String,
-    required: [true, 'please fill in!']
+    required: true
   }
 })
 module.exports = mongoose.model('Restaurant', restaurantSchema)

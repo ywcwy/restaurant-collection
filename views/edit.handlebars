@@ -9,7 +9,8 @@
     <p class="title">google_map: <input type="text" name="google_map" width="100px" value="{{restaurant.google_map}}">
     </p>
     {{!-- 無顯示在show page，但還是可用來修改index的rating資訊--}}
-    <p class="title">rating: <input type="text" name="rating" value="{{restaurant.rating}}"></p>
+    <p class="title">rating: <input type="number" name="rating" value="{{restaurant.rating}}" step="0.1" min="0"
+        max="5"></p>
     <p class="title">description: <input type="text" name="description" value="{{restaurant.description}}"></p>
     <div class="d-flex justify-content-center">
       <button type="submit" class="save">Save</button>
