@@ -19,15 +19,17 @@
 <div class="container mt-4">
   <div class="row">
     <div class="dropdown show col-12 mx-auto d-flex justify-content-end mb-1">
+      <a class="create-new px-2 py-1 mr-3 d-flex align-items-center" href="/restaurants/new"><i class="fas fa-plus"></i>
+        新增餐廳</a>
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         排序
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item {{#ifActive sort "asc"}}active{{/ifActive}}" href="/sort?item=name&sort=asc">A~Z</a>
-        <a class="dropdown-item {{#ifActive sort "desc"}}active{{/ifActive}}" href="/sort?item=name&sort=desc">Z~A</a>
-        <a class="dropdown-item {{#ifSort item "category"}}active{{/ifSort}}" href="/sort?item=category">類別</a>
-        <a class="dropdown-item {{#ifSort item "location"}}active{{/ifSort}}" href="/sort?item=location">地區</a>
+        <a class="dropdown-item {{#ifActive sort " asc"}}active{{/ifActive}}" href="/sort?item=name&sort=asc">A~Z</a>
+        <a class="dropdown-item {{#ifActive sort " desc"}}active{{/ifActive}}" href="/sort?item=name&sort=desc">Z~A</a>
+        <a class="dropdown-item {{#ifSort item " category"}}active{{/ifSort}}" href="/sort?item=category">類別</a>
+        <a class="dropdown-item {{#ifSort item " location"}}active{{/ifSort}}" href="/sort?item=location">地區</a>
       </div>
     </div>
 
