@@ -4,7 +4,7 @@ const User = require('../../models/user')
 const passport = require('passport')
 
 router.get('/login', (req, res) => {
-  res.render('login')
+  res.render('login', { css: 'index.css' })
 })
 
 router.post('/login', passport.authenticate('local', {
@@ -14,7 +14,7 @@ router.post('/login', passport.authenticate('local', {
 
 
 router.get('/register', (req, res) => {
-  res.render('register')
+  res.render('register', { css: 'index.css' })
 })
 
 router.post('/register', (req, res) => {
