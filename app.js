@@ -4,6 +4,8 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const usePassport = require('./config/passport')
+
 
 // 引用路由器，路徑設定為/routes，就會自動去尋找目錄下叫做index的檔案
 const routes = require('./routes')
@@ -21,6 +23,7 @@ app.use(session({
 app.use(express.static('public'), bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
+usePassport(app)
 
 app.use(routes)
 
