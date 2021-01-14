@@ -1,3 +1,4 @@
+{{!-- alert when no login --}}
 {{#if warning_msg}}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   {{warning_msg}}
@@ -7,6 +8,7 @@
 </div>
 {{/if}}
 
+{{!-- alert after logout --}}
 {{#if success_msg}}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{success_msg}}
@@ -16,6 +18,7 @@
 </div>
 {{/if}}
 
+{{!-- alert during registration --}}
 {{#if errors}}
 {{#each errors}}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -27,6 +30,7 @@
 {{/each}}
 {{/if}}
 
+{{!-- alert --}}
 {{#if passportError}}
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{passportError}}
@@ -36,6 +40,7 @@
 </div>
 {{/if}}
 
+{{!-- alert when no matching result --}}
 {{#if search_msg}}
 <div class="search-msg alert alert-warning alert-dismissible fade show d-flex align-items-center" role="alert">
   {{search_msg}}
