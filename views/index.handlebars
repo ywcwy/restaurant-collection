@@ -19,10 +19,12 @@
 <div class="container mt-4">
   <div class="row">
     <div class="dropdown show col-12 mx-auto d-flex justify-content-end mb-1">
-      <a class="create-new px-2 py-1 mr-3 d-flex align-items-center" href="/restaurants/new"><i class="fas fa-plus"></i>
+      {{>message}}
+      <a class="create-new px-2 py-1 mr-3 ml-3 d-flex align-items-center" href="/restaurants/new"><i
+          class="fas fa-plus"></i>
         新增餐廳</a>
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+      <a class="sort btn btn-secondary dropdown-toggle d-flex align-items-center" href="#" role="button"
+        id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         排序
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

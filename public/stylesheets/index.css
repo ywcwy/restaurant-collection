@@ -12,7 +12,7 @@ header {
 
 .create-new, .fa-plus {
   font-size: 14px;
-  border-radius: 10px;
+  border-radius: 4px;
   color: #fce2cf;
   background-color: #9b4b4b;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -20,6 +20,9 @@ header {
 
 .create-new:hover, .fa-plus:hover {
   color:#fce2cf;
+}
+.create-new {
+  height: 50px;
 }
 
 .banner {
@@ -43,8 +46,13 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 } 
 
+.sort {
+  height: 50px;
+}
+
 .dropdown {
   max-width: 680px;
+  line-height: 15px;
   border-radius: 8px;
   padding: 20px 30px;
   margin-top: -30px;
@@ -127,6 +135,10 @@ header {
 .login-page {
   position: relative;
   top: -300px;
+}
+
+.search-msg{
+  height: 50px;
 }
 
 @media screen and (max-width: 992px) {
