@@ -1,6 +1,7 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../models/user')
+const bcrypt = require('bcryptjs')
 
 module.exports = app => {
   // 初始化: middleware
@@ -13,10 +14,14 @@ module.exports = app => {
         if (!user) {
           return done(null, false, req.flash('error', "This user hasn't registered yet."))
         }
-        if (password !== user.password) {
-          return done(null, false, req.flash('error', "The email or password is wrong."))
-        }
-        return done(null, user)
+        return bcrypt
+          .compare(password, user.password)
+          .then(isMatch => {
+            if (!isMatch) {
+              return done(null, false, req.flash('error', "The email or password is wrong."))
+            }
+            return done(null, user)
+          })
       })
       .catch(err => done(err, null))
   }))
