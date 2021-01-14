@@ -10,19 +10,17 @@ module.exports = app => {
   app.use(passport.initialize())
   app.use(passport.session())
   // 認證策略： LocalStrategy
-  passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+  passport.use(new LocalStrategy({ usernameField: 'email', passReqToCallback: true }, (req, email, password, done) => {
     User.findOne({ email })
       .then(user => {
         if (!user) {
-          return done(null, false, { message: "This user hasn't registered yet." })
+          return done(null, false, req.flash('error', "此 Email 尚未註冊。"))
         }
-
-        // return done(null, false, req.flash('error', "This user hasn't registered yet."))
         return bcrypt
           .compare(password, user.password)
           .then(isMatch => {
             if (!isMatch) {
-              return done(null, false, req.flash('error', "The email or password is wrong."))
+              return done(null, false, req.flash('error', "Email 或 Password 錯誤。"))
             }
             return done(null, user)
           })
