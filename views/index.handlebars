@@ -18,24 +18,28 @@
 
 <div class="container mt-4">
   <div class="row">
+    {{>message}}
     <div class="dropdown show col-12 mx-auto d-flex justify-content-end mb-1">
-      {{>message}}
       <a class="create-new px-2 py-1 mr-3 ml-3 d-flex align-items-center" href="/restaurants/new"><i
-          class="fas fa-plus"></i>
-        新增餐廳</a>
+          class="fas fa-plus"></i>新增餐廳</a>
       <a class="sort btn btn-secondary dropdown-toggle d-flex align-items-center" href="#" role="button"
         id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         排序
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item {{#ifActive sort " asc"}}active{{/ifActive}}" href="/sort?item=name&sort=asc">A~Z</a>
-        <a class="dropdown-item {{#ifActive sort " desc"}}active{{/ifActive}}" href="/sort?item=name&sort=desc">Z~A</a>
-        <a class="dropdown-item {{#ifSort item " category"}}active{{/ifSort}}" href="/sort?item=category">類別</a>
-        <a class="dropdown-item {{#ifSort item " location"}}active{{/ifSort}}" href="/sort?item=location">地區</a>
+        <a class="dropdown-item {{#isActive sort " asc "}}active{{/isActive}}" href="/sort?item=name&sort=asc">餐廳名依 A~Z
+          排序</a>
+        <a class="dropdown-item {{#isActive sort " desc"}}active{{/isActive}}" href="/sort?item=name&sort=desc">餐廳名依 Z~A
+          排序</a>
+        <a class="dropdown-item {{#isSort item " category"}}active{{/isSort}}" href="/sort?item=category">類別依 A~Z 排序</a>
+        <a class="dropdown-item {{#isSort item " location"}}active{{/isSort}}" href="/sort?item=location">地區依 A~Z排序</a>
       </div>
     </div>
-    {{#if restaurants}}
+
+
+
     <div class="row mx-auto">
+      {{#if restaurants}}
       {{#each restaurants}}
       <div class="col-sm-4">
         <div class="card mb-3">

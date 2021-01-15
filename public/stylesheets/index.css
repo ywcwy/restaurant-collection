@@ -46,6 +46,10 @@ header {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 } 
 
+.search-bar .search-bar-inner h4 {
+  color: #9b4b4b;
+}
+
 .sort {
   height: 50px;
 }
@@ -56,10 +60,6 @@ header {
   border-radius: 8px;
   padding: 20px 30px;
   margin-top: -30px;
-}
-
-.search-bar .search-bar-inner h4 {
-  color: #9b4b4b;
 }
 
 .form-control::placeholder {
