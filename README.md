@@ -1,17 +1,20 @@
 # Restaurant-Collection
 collection and recommendation for your daily meal
 
-![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/w%3A%20detail%2C%20edit%2C%20delete%20function.png)
+![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20collection.png)
 
 ![Image](https://raw.githubusercontent.com/ywcwy/restaurant-collection/master/restaurant%20info.png)
 
 ## Features
-* ordering restaurants by location or category
-* search restaurant's name or category of exotic food
-* click restaurant card to reach more details of the restaurant
+* register & log in you account, or login with Facebook account
 * create new restaurant page
 * edit and view particular restaurant details
+* click restaurant card to reach more details of the restaurant
 * delete particular restaurant page 
+* search restaurant's name or category of exotic food
+* ordering restaurants by location or category
+
+
 
 ## Environment
 * Node.js
@@ -21,6 +24,12 @@ collection and recommendation for your daily meal
 * express-handlebars
 * method-override
 * body-parser
+* express-session
+* passport-local
+* passport-facebook
+* connect-flash
+* bcryptjs
+* dotenv
 
 ## Database
 * mongoose 
@@ -46,7 +55,7 @@ $npm install     // install all the Packages
 ```
 ### 5. Connect to the Database
 ```
-$npm run seed      // install all the Packages
+$npm run seed      // create Seeders
 ```
 
 ### 6. Project Implement
