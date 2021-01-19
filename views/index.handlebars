@@ -24,15 +24,18 @@
           class="fas fa-plus"></i>新增餐廳</a>
       <a class="sort btn btn-secondary dropdown-toggle d-flex align-items-center" href="#" role="button"
         id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        排序
+        {{#if sequence}}{{sequence}}{{else}}排序{{/if}}
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item {{#isActive sort " asc "}}active{{/isActive}}" href="/sort?item=name&sort=asc">餐廳名依 A~Z
           排序</a>
         <a class="dropdown-item {{#isActive sort " desc"}}active{{/isActive}}" href="/sort?item=name&sort=desc">餐廳名依 Z~A
           排序</a>
-        <a class="dropdown-item {{#isSort item " category"}}active{{/isSort}}" href="/sort?item=category">類別依 A~Z 排序</a>
-        <a class="dropdown-item {{#isSort item " location"}}active{{/isSort}}" href="/sort?item=location">地區依 A~Z排序</a>
+        <a class="dropdown-item {{#isActive item " category"}}active{{/isActive}}" href="/sort?item=category">類別依
+          A~Z
+          排序</a>
+        <a class="dropdown-item {{#isActive item " location"}}active{{/isActive}}" href="/sort?item=location">地區依
+          A~Z排序</a>
       </div>
     </div>
 

@@ -11,6 +11,10 @@ module.exports = app => {
   app.use(passport.session())
   // 認證策略： LocalStrategy
   passport.use(new LocalStrategy({ usernameField: 'email', passReqToCallback: true }, (req, email, password, done) => {
+    if (!email || !password) {
+      // return done(null, false, req.flash('error', "請輸入 email 及 password。"))
+      return done(null, false, { message: '請輸入 email 及 password。' })
+    }
     User.findOne({ email })
       .then(user => {
         if (!user) {
